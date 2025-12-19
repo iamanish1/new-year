@@ -1,0 +1,101 @@
+/* ============================================
+   BASE STYLES
+   Reset, typography, and layout utilities
+   ============================================ */
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text);
+    background-color: var(--color-bg-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    line-height: var(--line-height-heading);
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+}
+
+/* Layout Utilities */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block;
+}
+
+/* Accessibility */
+:focus-visible {
+    outline: 2px solid var(--color-accent-brown);
+    outline-offset: 4px;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Image defaults */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Button reset */
+button {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+

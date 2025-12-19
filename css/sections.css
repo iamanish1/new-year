@@ -1,0 +1,1833 @@
+/* ============================================
+   SECTIONS STYLES
+   Full-screen sections, cards, videos, buttons
+   ============================================ */
+
+/* Full-Screen Sections */
+.scene {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+    z-index: 1;
+    overflow-y: auto;
+}
+
+.scene.active {
+    z-index: 10;
+}
+
+.scene-content {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    overflow-x: hidden;
+}
+
+/* Scene 5 specific adjustments */
+.scene[data-scene="5"] {
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-items: flex-start;
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-lg);
+}
+
+.scene[data-scene="5"] .scene-content {
+    padding: var(--spacing-sm) var(--spacing-md);
+    overflow: visible;
+    max-width: 900px;
+}
+
+.scene[data-scene="5"] .scene-title {
+    margin-bottom: var(--spacing-md);
+}
+
+.scene[data-scene="5"] .scene-text {
+    margin-bottom: var(--spacing-md);
+}
+
+.scene-title {
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-dark);
+}
+
+.scene-subtitle {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-xl);
+    font-style: italic;
+}
+
+.scene-text {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.narration-text {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+.narration-text p {
+    margin-bottom: var(--spacing-md);
+    line-height: var(--line-height-body);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--color-btn-bg);
+    color: var(--color-btn-text);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    font-weight: 500;
+    min-height: 44px; /* Touch-friendly */
+    min-width: 120px;
+    margin-top: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-btn-hover);
+}
+
+.btn-primary:focus-visible {
+    outline: 2px solid var(--color-text-dark);
+    outline-offset: 4px;
+}
+
+/* Music Control Button */
+.music-control {
+    position: fixed;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-accent-brown);
+    color: var(--color-bg-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+    font-size: 1.5rem;
+    opacity: 0.7;
+    transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.music-control:hover {
+    background-color: var(--color-btn-hover);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* More subtle music control - already handled by default opacity */
+
+.music-icon {
+    display: block;
+}
+
+/* Guide Character */
+.guide-character {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    pointer-events: none;
+}
+
+.guide-image {
+    width: 120px;
+    height: auto;
+    max-width: 20vw;
+}
+
+.guide-intro-container {
+    margin-bottom: var(--spacing-lg);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.guide-placeholder {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: var(--spacing-lg) 0;
+    position: relative;
+}
+
+/* Guide placeholder in corner for Scene 2 */
+#guidePlaceholderScene2 {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    min-height: auto;
+    margin: 0;
+    z-index: 100;
+    width: auto;
+    max-width: 280px;
+}
+
+/* Guide placeholder at bottom left for Scene 3 */
+#guidePlaceholderScene3 {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    min-height: auto;
+    margin: 0;
+    z-index: 100;
+    width: auto;
+    max-width: 280px;
+}
+
+/* Guide placeholder at bottom right for Scene 4 */
+#guidePlaceholderScene4 {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    min-height: auto;
+    margin: 0;
+    z-index: 100;
+    width: auto;
+    max-width: 280px;
+}
+
+.guide-character-image {
+    max-width: 80%;
+    max-height: 300px;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    animation: guideAppear 1s ease-out forwards;
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Guide character image in corner for Scene 2 */
+#guideCharacterImageScene2 {
+    max-width: 220px;
+    max-height: 280px;
+    width: auto;
+    height: auto;
+}
+
+/* Guide character image at bottom left for Scene 3 */
+#guideCharacterImageScene3 {
+    max-width: 220px;
+    max-height: 280px;
+    width: auto;
+    height: auto;
+}
+
+/* Guide character image at bottom right for Scene 4 */
+#guideCharacterImageScene4 {
+    max-width: 220px;
+    max-height: 280px;
+    width: auto;
+    height: auto;
+}
+
+/* Scene 5 guide character */
+#guidePlaceholderScene5 {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    min-height: auto;
+    margin: 0;
+    z-index: 1000;
+    width: auto;
+    max-width: 280px;
+}
+
+/* Guide character image at bottom right for Scene 5 */
+#guideCharacterImageScene5 {
+    max-width: 220px;
+    max-height: 280px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+#thoughtBubbleScene5 {
+    top: -120px;
+    right: 10px;
+    max-width: 250px;
+    min-width: 180px;
+}
+
+/* Scene 6 guide character */
+#guidePlaceholderScene6 {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    min-height: auto;
+    margin: 0;
+    z-index: 1000;
+    width: auto;
+    max-width: 280px;
+}
+
+/* Guide character image at bottom left for Scene 6 */
+#guideCharacterImageScene6 {
+    max-width: 220px;
+    max-height: 280px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+#thoughtBubbleScene6 {
+    top: -120px;
+    left: 10px;
+    max-width: 250px;
+    min-width: 180px;
+}
+
+@keyframes guideAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Thought Bubble Styles */
+.thought-bubble {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8F8F8 100%);
+    border: 3px solid rgba(139, 115, 85, 0.3);
+    border-radius: 20px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    max-width: 280px;
+    min-width: 200px;
+    box-shadow: 
+        0 4px 16px rgba(0, 0, 0, 0.15),
+        0 2px 8px rgba(139, 115, 85, 0.1);
+    opacity: 0;
+    transform: scale(0.9) translateY(5px);
+    visibility: hidden;
+    z-index: 10;
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Thought bubble positioning for Scene 2 (corner placement) */
+#thoughtBubbleScene2 {
+    top: -120px;
+    right: 10px;
+    max-width: 250px;
+    min-width: 180px;
+}
+
+/* Thought bubble positioning for Scene 3 (bottom left placement) */
+#thoughtBubbleScene3 {
+    top: -120px;
+    left: 10px;
+    max-width: 250px;
+    min-width: 180px;
+}
+
+/* Thought bubble positioning for Scene 4 (bottom right placement) */
+#thoughtBubbleScene4 {
+    top: -120px;
+    right: 10px;
+    max-width: 250px;
+    min-width: 180px;
+}
+
+.thought-bubble-content {
+    position: relative;
+    z-index: 2;
+}
+
+.thought-text {
+    margin: 0;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    font-family: var(--font-body);
+    font-weight: 400;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+    will-change: opacity;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.thought-bubble-tail {
+    position: absolute;
+    bottom: -15px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 20px solid #FFFFFF;
+    filter: drop-shadow(0 2px 4px rgba(139, 115, 85, 0.2));
+}
+
+.thought-bubble-tail::before {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: -15px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 20px solid rgba(139, 115, 85, 0.3);
+    z-index: -1;
+}
+
+/* Removed CSS animation - using JavaScript for better control */
+
+/* Typing animation for thought text */
+.thought-text.typing {
+    opacity: 1;
+}
+
+.thought-text.typing::after {
+    content: '|';
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Appreciation Cards */
+.appreciation-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin: var(--spacing-xl) auto;
+    max-width: 600px;
+}
+
+.card {
+    background-color: var(--color-bg-primary);
+    border: 2px solid var(--color-accent-peach);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    text-align: left;
+}
+
+.card-text {
+    font-style: italic;
+    color: var(--color-text);
+    margin: 0;
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+}
+
+/* Greeting Card */
+.greeting-card {
+    background: linear-gradient(135deg, #F5F0E8 0%, #F9F6F1 50%, #F5F0E8 100%);
+    border-radius: 14px;
+    padding: 0;
+    margin: var(--spacing-md) auto;
+    max-width: 420px;
+    box-shadow: 
+        0 6px 24px rgba(139, 115, 85, 0.1),
+        0 3px 12px rgba(139, 115, 85, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(139, 115, 85, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.greeting-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        rgba(139, 115, 85, 0.3) 0%, 
+        rgba(139, 115, 85, 0.5) 50%, 
+        rgba(139, 115, 85, 0.3) 100%);
+}
+
+.greeting-card-content {
+    padding: var(--spacing-md) var(--spacing-md);
+    position: relative;
+}
+
+.greeting-card-content::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(139, 115, 85, 0.2), transparent);
+}
+
+.greeting-text {
+    font-size: clamp(0.875rem, 1.9vw, 1rem);
+    color: #3A3428;
+    margin-bottom: calc(var(--spacing-sm) * 0.75);
+    line-height: 1.7;
+    font-family: 'Crimson Text', 'Libre Baskerville', serif;
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.01em;
+}
+
+.greeting-text:last-of-type:not(.greeting-signature) {
+    margin-bottom: var(--spacing-md);
+}
+
+.greeting-spacing {
+    margin-top: var(--spacing-lg);
+}
+
+.greeting-signature {
+    margin-top: var(--spacing-sm);
+    font-style: italic;
+    color: #5A4A3A;
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
+    font-family: 'Crimson Text', 'Libre Baskerville', serif;
+    text-align: right;
+    padding-right: var(--spacing-xs);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+/* Flower Animation - Styles moved to css/flower-animation.css */
+
+/* Video Containers */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: var(--spacing-xl) auto;
+    aspect-ratio: 16 / 9;
+    background-color: var(--color-accent-brown);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.story-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: var(--color-accent-brown);
+}
+
+.video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(139, 115, 85, 0.9);
+    color: var(--color-bg-primary);
+    padding: var(--spacing-lg);
+    text-align: center;
+    z-index: 1;
+}
+
+.video-placeholder p {
+    margin-bottom: var(--spacing-sm);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+.video-hint {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    opacity: 0.8;
+    font-family: monospace;
+}
+
+/* Ending Signature */
+.ending-signature {
+    margin-top: var(--spacing-xl);
+    font-style: italic;
+    color: var(--color-text-light);
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+}
+
+/* ============================================
+   LANDING PAGE STYLES
+   Enhanced landing page with calm, warm feeling
+   ============================================ */
+
+.landing-scene {
+    background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-accent-beige) 50%, var(--color-bg-primary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.landing-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Floating Circles */
+.landing-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 212, 179, 0.35) 0%, transparent 70%);
+    animation: float 25s ease-in-out infinite;
+    filter: blur(1px);
+}
+
+.circle-1 {
+    width: 200px;
+    height: 200px;
+    top: -80px;
+    left: -80px;
+    animation-delay: 0s;
+}
+
+.circle-2 {
+    width: 150px;
+    height: 150px;
+    bottom: -40px;
+    right: 10%;
+    animation-delay: 5s;
+    background: radial-gradient(circle, rgba(250, 247, 243, 0.4) 0%, transparent 70%);
+}
+
+.circle-3 {
+    width: 120px;
+    height: 120px;
+    top: 50%;
+    right: -40px;
+    animation-delay: 10s;
+    background: radial-gradient(circle, rgba(255, 212, 179, 0.3) 0%, transparent 70%);
+}
+
+.circle-4 {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 5%;
+    animation-delay: 7s;
+    background: radial-gradient(circle, rgba(139, 115, 85, 0.2) 0%, transparent 70%);
+}
+
+.circle-5 {
+    width: 80px;
+    height: 80px;
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 12s;
+    background: radial-gradient(circle, rgba(255, 212, 179, 0.25) 0%, transparent 70%);
+}
+
+/* Organic Blob Shapes */
+.landing-blob {
+    position: absolute;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    background: linear-gradient(135deg, rgba(255, 212, 179, 0.2), rgba(250, 247, 243, 0.25));
+    animation: blobFloat 30s ease-in-out infinite;
+    filter: blur(2px);
+}
+
+.blob-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    right: -50px;
+    animation-delay: 0s;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.blob-2 {
+    width: 250px;
+    height: 250px;
+    bottom: 15%;
+    left: -30px;
+    animation-delay: 8s;
+    border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+    background: linear-gradient(135deg, rgba(250, 247, 243, 0.22), rgba(255, 212, 179, 0.18));
+}
+
+.blob-3 {
+    width: 180px;
+    height: 180px;
+    top: 60%;
+    right: 20%;
+    animation-delay: 15s;
+    border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
+    background: linear-gradient(135deg, rgba(139, 115, 85, 0.15), rgba(255, 212, 179, 0.2));
+}
+
+/* Flowing Wave Patterns */
+.landing-wave {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(255, 212, 179, 0.15) 50%,
+        transparent 100%);
+    border-radius: 50%;
+    animation: waveFlow 20s ease-in-out infinite;
+    filter: blur(40px);
+}
+
+.wave-1 {
+    top: 10%;
+    left: -20%;
+    width: 140%;
+    height: 300px;
+    animation-delay: 0s;
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(255, 212, 179, 0.35) 50%,
+        transparent 100%);
+}
+
+.wave-2 {
+    bottom: 15%;
+    right: -15%;
+    width: 130%;
+    height: 250px;
+    animation-delay: 7s;
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(250, 247, 243, 0.3) 50%,
+        transparent 100%);
+}
+
+.wave-3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 200px;
+    animation-delay: 14s;
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(139, 115, 85, 0.25) 50%,
+        transparent 100%);
+}
+
+/* Organic Flowing Shapes */
+.landing-flow {
+    position: absolute;
+    border-radius: 50% 40% 60% 30% / 60% 30% 70% 40%;
+    background: radial-gradient(ellipse at center, 
+        rgba(255, 212, 179, 0.4) 0%,
+        rgba(250, 247, 243, 0.25) 50%,
+        transparent 100%);
+    animation: flowMorph 25s ease-in-out infinite;
+    filter: blur(30px);
+}
+
+.flow-1 {
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    right: -50px;
+    animation-delay: 0s;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.flow-2 {
+    width: 350px;
+    height: 350px;
+    bottom: -80px;
+    left: -30px;
+    animation-delay: 12s;
+    border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+    background: radial-gradient(ellipse at center, 
+        rgba(250, 247, 243, 0.35) 0%,
+        rgba(255, 212, 179, 0.22) 50%,
+        transparent 100%);
+}
+
+/* Geometric Pattern Overlay */
+.landing-geometric {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 2px,
+            rgba(139, 115, 85, 0.25) 2px,
+            rgba(139, 115, 85, 0.25) 4px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 212, 179, 0.2) 2px,
+            rgba(255, 212, 179, 0.2) 4px
+        );
+    background-size: 60px 60px;
+    animation: geometricShift 40s linear infinite;
+    mix-blend-mode: multiply;
+}
+
+/* Subtle Texture Overlay */
+.landing-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-image: 
+        radial-gradient(circle at 1px 1px, rgba(139, 115, 85, 0.3) 1px, transparent 0);
+    background-size: 20px 20px;
+    mix-blend-mode: overlay;
+    animation: textureMove 80s linear infinite;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translate(40px, -40px) scale(1.15) rotate(5deg);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translate(-30px, 30px) scale(0.95) rotate(-5deg);
+        opacity: 0.25;
+    }
+    75% {
+        transform: translate(20px, 20px) scale(1.05) rotate(3deg);
+        opacity: 0.35;
+    }
+}
+
+@keyframes blobFloat {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    25% {
+        transform: translate(50px, -30px) rotate(90deg);
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    50% {
+        transform: translate(-40px, 40px) rotate(180deg);
+        border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
+    }
+    75% {
+        transform: translate(30px, 30px) rotate(270deg);
+        border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+    }
+}
+
+@keyframes waveFlow {
+    0%, 100% {
+        transform: translateX(0) translateY(0) scale(1);
+        opacity: 0.4;
+    }
+    33% {
+        transform: translateX(30px) translateY(-20px) scale(1.1);
+        opacity: 0.5;
+    }
+    66% {
+        transform: translateX(-20px) translateY(15px) scale(0.95);
+        opacity: 0.35;
+    }
+}
+
+@keyframes flowMorph {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    25% {
+        transform: translate(50px, -30px) rotate(90deg);
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    50% {
+        transform: translate(-40px, 40px) rotate(180deg);
+        border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
+    }
+    75% {
+        transform: translate(30px, 30px) rotate(270deg);
+        border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+    }
+}
+
+@keyframes geometricShift {
+    0% {
+        background-position: 0 0, 0 0;
+    }
+    100% {
+        background-position: 60px 60px, -60px -60px;
+    }
+}
+
+@keyframes textureMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 20px 20px;
+    }
+}
+
+.landing-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: var(--spacing-lg) var(--spacing-md);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.landing-greeting {
+    margin-bottom: var(--spacing-md);
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+}
+
+.landing-subtitle {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: var(--color-text-light);
+    font-style: italic;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+    margin: 0;
+}
+
+.landing-title {
+    font-family: var(--font-heading);
+    font-weight: 300;
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1.2;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15em;
+}
+
+.title-line {
+    display: block;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.title-line:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+.title-line:nth-child(2) {
+    animation-delay: 0.9s;
+    font-weight: 400;
+}
+
+.landing-message {
+    margin-bottom: var(--spacing-xl);
+    max-width: 480px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1.2s forwards;
+}
+
+.landing-text {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 300;
+    letter-spacing: 0.01em;
+}
+
+.landing-text:last-of-type {
+    margin-bottom: 0;
+    font-style: italic;
+    color: var(--color-text-light);
+}
+
+.landing-invitation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1.5s forwards;
+}
+
+.btn-landing {
+    background-color: var(--color-accent-brown);
+    color: var(--color-bg-primary);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 50px;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    font-weight: 400;
+    min-height: 48px;
+    min-width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.2);
+    transition: all var(--transition-normal);
+    border: 2px solid transparent;
+    letter-spacing: 0.02em;
+}
+
+.btn-landing:hover {
+    background-color: var(--color-btn-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 115, 85, 0.3);
+}
+
+.btn-landing:active {
+    transform: translateY(0);
+}
+
+.btn-text {
+    display: inline-block;
+}
+
+.btn-arrow {
+    display: inline-block;
+    transition: transform var(--transition-normal);
+    font-size: 1.2em;
+}
+
+.btn-landing:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+.landing-hint {
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    color: var(--color-text-light);
+    font-style: italic;
+    margin: 0;
+    opacity: 0.7;
+    font-weight: 300;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   LETTER LAYOUT STYLES
+   Old-school letter design with vintage aesthetic
+   ============================================ */
+
+.letter-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.letter-container:hover {
+    transform: translateY(-2px);
+}
+
+.letter-paper {
+    background: linear-gradient(to bottom, #FEFCF9 0%, #F9F6F0 100%);
+    border: 1px solid rgba(139, 115, 85, 0.2);
+    border-radius: 4px;
+    padding: clamp(1.5rem, 4vw, 2.25rem) clamp(1.5rem, 4vw, 2.5rem);
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(139, 115, 85, 0.05),
+        inset 0 0 30px rgba(139, 115, 85, 0.03);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-origin: center top;
+    opacity: 0;
+    animation: letterAppear 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+}
+
+.letter-paper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            transparent,
+            transparent 2px,
+            rgba(139, 115, 85, 0.03) 2px,
+            rgba(139, 115, 85, 0.03) 4px
+        );
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.letter-paper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 60px;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        transparent 0%,
+        rgba(255, 0, 0, 0.1) 5%,
+        rgba(255, 0, 0, 0.1) 95%,
+        transparent 100%
+    );
+    opacity: 0.3;
+}
+
+.letter-paper.closing {
+    animation: letterClose 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.letter-content {
+    position: relative;
+    z-index: 1;
+    font-family: 'Kalam', 'Brush Script MT', 'Lucida Handwriting', cursive;
+    color: var(--color-text-dark);
+    line-height: 1.8;
+}
+
+.letter-date {
+    text-align: right;
+    font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
+    opacity: 0;
+    animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
+}
+
+.letter-greeting {
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+    opacity: 0;
+    animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
+}
+
+.letter-body {
+    margin-bottom: var(--spacing-xl);
+    opacity: 0;
+    animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s forwards;
+}
+
+.letter-paragraph {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+    line-height: 1.9;
+    text-align: left;
+}
+
+.letter-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.letter-italic {
+    font-style: italic;
+    color: var(--color-text-light);
+}
+
+.letter-signature {
+    margin-top: var(--spacing-lg);
+    text-align: right;
+    opacity: 0;
+    animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s forwards;
+}
+
+.letter-signature p {
+    margin-bottom: var(--spacing-xs);
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: var(--color-text);
+}
+
+.letter-signature-name {
+    font-weight: 500;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: var(--color-text-dark);
+}
+
+/* Click Me Button */
+.letter-click-hint {
+    margin-top: var(--spacing-xl);
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.8s forwards;
+}
+
+.letter-click-btn {
+    background-color: var(--color-accent-brown);
+    color: var(--color-bg-primary);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+    font-weight: 500;
+    min-height: 32px;
+    min-width: 100px;
+    box-shadow: 0 2px 8px rgba(139, 115, 85, 0.25);
+    transition: all var(--transition-normal);
+    border: 1px solid rgba(139, 115, 85, 0.3);
+    letter-spacing: 0.5px;
+    font-family: var(--font-body);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.letter-click-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+}
+
+.letter-click-btn:hover {
+    background-color: var(--color-btn-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.35);
+}
+
+.letter-click-btn:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+.letter-click-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(139, 115, 85, 0.3);
+}
+
+.letter-paper.closing .letter-click-btn {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Envelope Styles */
+.letter-envelope {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 140%;
+    max-width: 500px;
+    max-height: 700px;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    perspective: 1000px;
+}
+
+.letter-envelope.visible {
+    opacity: 1;
+    pointer-events: auto;
+    animation: envelopeAppear 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    transform: translate(-50%, -50%);
+}
+
+.envelope-front {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #E8DCC6 0%, #D4C4A8 50%, #C8B89A 100%);
+    border: 3px solid rgba(139, 115, 85, 0.5);
+    border-radius: 0;
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.25),
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        inset 0 0 40px rgba(139, 115, 85, 0.2),
+        inset 0 2px 6px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-xl) var(--spacing-lg);
+    overflow: visible;
+    transform-style: preserve-3d;
+}
+
+.envelope-front::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(139, 115, 85, 0.06) 10px,
+            rgba(139, 115, 85, 0.06) 20px
+        );
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 38%;
+    background: linear-gradient(135deg, #D4C4A8 0%, #C4B498 50%, #B8A888 100%);
+    border-radius: 0;
+    transform-origin: top center;
+    transform: rotateX(0deg);
+    transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 
+        0 -6px 16px rgba(0, 0, 0, 0.25),
+        inset 0 3px 6px rgba(255, 255, 255, 0.2),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.15);
+    border-bottom: 4px solid rgba(139, 115, 85, 0.6);
+    border-top: 3px solid rgba(139, 115, 85, 0.5);
+    z-index: 3;
+    backface-visibility: hidden;
+}
+
+.envelope-flap::before {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(to bottom, rgba(139, 115, 85, 0.3), transparent);
+    border-radius: 0 0 50% 50%;
+}
+
+.envelope-flap.closed {
+    transform: rotateX(180deg) translateY(-3px);
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 -3px 6px rgba(255, 255, 255, 0.1),
+        inset 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.envelope-body {
+    position: absolute;
+    top: 38%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #E8DCC6 0%, #D4C4A8 100%);
+    z-index: 1;
+    border-top: 4px solid rgba(139, 115, 85, 0.5);
+    box-shadow: 
+        inset 0 4px 12px rgba(0, 0, 0, 0.15),
+        inset 0 0 20px rgba(139, 115, 85, 0.1);
+    padding-bottom: var(--spacing-xl);
+    overflow: visible;
+}
+
+.envelope-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 20%,
+        transparent 80%,
+        rgba(0, 0, 0, 0.05) 100%
+    );
+    pointer-events: none;
+}
+
+.envelope-address {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    font-family: var(--font-heading);
+    color: var(--color-text-dark);
+    margin-top: auto;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px dashed rgba(139, 115, 85, 0.3);
+    border-radius: 4px;
+    backdrop-filter: blur(2px);
+    width: 90%;
+    max-width: 400px;
+    overflow: visible;
+}
+
+.envelope-to {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.envelope-from {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: var(--color-text-light);
+    font-style: italic;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+/* Sending Animation */
+.letter-sending {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.letter-sending.visible {
+    opacity: 1;
+    pointer-events: auto;
+    animation: sendingAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.sending-animation {
+    text-align: center;
+    color: var(--color-text-dark);
+}
+
+.sending-icon {
+    font-size: clamp(3rem, 8vw, 5rem);
+    margin-bottom: var(--spacing-md);
+    animation: sendingFloat 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.sending-text {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-family: var(--font-heading);
+    color: var(--color-text);
+    font-style: italic;
+    animation: sendingPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Letter Animations */
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes letterClose {
+    0% {
+        transform: rotateX(0deg) scale(1) translateY(0);
+        opacity: 1;
+    }
+    30% {
+        transform: rotateX(45deg) scale(0.98) translateY(-5px);
+        opacity: 0.95;
+    }
+    60% {
+        transform: rotateX(90deg) scale(0.96) translateY(-10px);
+        opacity: 0.7;
+    }
+    100% {
+        transform: rotateX(180deg) scale(0.92) translateY(-15px);
+        opacity: 0;
+    }
+}
+
+@keyframes envelopeAppear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.85);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes sendingAppear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.7) rotate(-10deg);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(0.95) rotate(5deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+}
+
+@keyframes sendingFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-8px) rotate(-3deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-8px) rotate(3deg);
+    }
+}
+
+@keyframes sendingPulse {
+    0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+/* Landing page responsive adjustments */
+@media (max-width: 767px) {
+    .landing-content {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+    
+    .letter-paper {
+        padding: clamp(1.5rem, 4vw, 2rem) clamp(1.5rem, 4vw, 2rem);
+    }
+    
+    .letter-paper::after {
+        left: 40px;
+    }
+    
+    .letter-paragraph {
+        font-size: clamp(0.95rem, 3vw, 1.1rem);
+    }
+    
+    .letter-greeting {
+        font-size: clamp(1rem, 3vw, 1.2rem);
+    }
+    
+    .letter-date {
+        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    }
+    
+    .thought-bubble {
+        max-width: 220px;
+        min-width: 180px;
+        padding: var(--spacing-sm) var(--spacing-md);
+        top: -10px;
+        right: -10px;
+    }
+    
+    .thought-text {
+        font-size: clamp(0.85rem, 2.2vw, 1rem);
+    }
+    
+    .landing-title {
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .landing-message {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .landing-text {
+        font-size: clamp(0.95rem, 3vw, 1.1rem);
+    }
+    
+    .btn-landing {
+        min-width: 150px;
+        padding: var(--spacing-xs) var(--spacing-md);
+    }
+    
+    /* Smaller background elements on mobile */
+    .circle-1 {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .circle-2 {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .circle-3 {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .circle-4 {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .circle-5 {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .blob-1 {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .blob-2 {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .blob-3 {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .wave-1,
+    .wave-2,
+    .wave-3 {
+        width: 120%;
+        height: 200px;
+    }
+    
+    .flow-1 {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .flow-2 {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .landing-geometric {
+        background-size: 40px 40px;
+    }
+    
+    .landing-texture {
+        background-size: 15px 15px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .landing-title {
+        font-size: clamp(2.5rem, 5vw, 3.25rem);
+    }
+    
+    .landing-text {
+        font-size: 1.15rem;
+    }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .scene-content {
+        padding: var(--spacing-xl);
+    }
+    
+    .appreciation-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .guide-image {
+        width: 150px;
+    }
+    
+    .music-control {
+        top: var(--spacing-lg);
+        right: var(--spacing-lg);
+    }
+}
+
+@media (min-width: 1024px) {
+    .scene-content {
+        padding: var(--spacing-2xl);
+    }
+    
+    .narration-text {
+        font-size: 1.125rem;
+    }
+    
+    .card-text {
+        font-size: 1.125rem;
+    }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 767px) {
+    .scene {
+        padding: var(--spacing-sm);
+    }
+    
+    .greeting-card {
+        max-width: 95%;
+        margin: var(--spacing-lg) auto;
+    }
+    
+    .greeting-card-content {
+        padding: var(--spacing-xl) var(--spacing-lg);
+    }
+    
+    .greeting-text {
+        font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+        line-height: 1.7;
+    }
+    
+    .greeting-signature {
+        font-size: clamp(1rem, 2.2vw, 1.25rem);
+    }
+    
+    /* Corner guide character adjustments for mobile */
+    #guidePlaceholderScene2 {
+        bottom: 10px;
+        right: 10px;
+        max-width: 160px;
+    }
+    
+    #guideCharacterImageScene2 {
+        max-width: 140px;
+        max-height: 180px;
+    }
+    
+    #thoughtBubbleScene2 {
+        top: -100px;
+        right: 5px;
+        max-width: 200px;
+        min-width: 150px;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    /* Bottom left guide character adjustments for mobile Scene 3 */
+    #guidePlaceholderScene3 {
+        bottom: 10px;
+        left: 10px;
+        max-width: 160px;
+    }
+    
+    #guideCharacterImageScene3 {
+        max-width: 140px;
+        max-height: 180px;
+    }
+    
+    #thoughtBubbleScene3 {
+        top: -100px;
+        left: 5px;
+        max-width: 200px;
+        min-width: 150px;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    /* Bottom right guide character adjustments for mobile Scene 4 */
+    #guidePlaceholderScene4 {
+        bottom: 10px;
+        right: 10px;
+        max-width: 160px;
+    }
+    
+    #guideCharacterImageScene4 {
+        max-width: 140px;
+        max-height: 180px;
+    }
+    
+    #thoughtBubbleScene4 {
+        top: -100px;
+        right: 5px;
+        max-width: 200px;
+        min-width: 150px;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    }
+    
+    .scene-content {
+        padding: var(--spacing-md);
+    }
+    
+    /* Greeting card mobile styles moved to Mobile Optimizations section */
+    
+    .card {
+        padding: var(--spacing-md);
+    }
+    
+    .music-control {
+        width: 44px;
+        height: 44px;
+        font-size: 1.25rem;
+    }
+}
+

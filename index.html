@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Gentle Year-End Journey</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/flower-animation.css">
+</head>
+<body>
+    <!-- Background Music -->
+    <!-- Add your background music file to assets/audio/background-music.mp3 -->
+    <audio id="backgroundMusic" loop>
+        <source src="assets/audio/background-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Control Button -->
+    <button id="musicToggle" class="music-control" aria-label="Toggle background music">
+        <span class="music-icon">♪</span>
+    </button>
+
+    <!-- Tour Guide Character -->
+    <!-- Guide character removed - using image in scene instead -->
+
+    <!-- Scene 1: A Gentle Beginning -->
+    <section class="scene active landing-scene" data-scene="0">
+        <div class="landing-background">
+            <!-- Floating circles -->
+            <div class="landing-circle circle-1"></div>
+            <div class="landing-circle circle-2"></div>
+            <div class="landing-circle circle-3"></div>
+            <div class="landing-circle circle-4"></div>
+            <div class="landing-circle circle-5"></div>
+            
+            <!-- Organic blob shapes -->
+            <div class="landing-blob blob-1"></div>
+            <div class="landing-blob blob-2"></div>
+            <div class="landing-blob blob-3"></div>
+            
+            <!-- Flowing wave patterns -->
+            <div class="landing-wave wave-1"></div>
+            <div class="landing-wave wave-2"></div>
+            <div class="landing-wave wave-3"></div>
+            
+            <!-- Organic flowing shapes -->
+            <div class="landing-flow flow-1"></div>
+            <div class="landing-flow flow-2"></div>
+            
+            <!-- Geometric pattern overlay -->
+            <div class="landing-geometric"></div>
+            
+            <!-- Subtle texture overlay -->
+            <div class="landing-texture"></div>
+        </div>
+        <div class="scene-content landing-content">
+            <div class="letter-container" id="letterContainer">
+                <div class="letter-paper" id="letterPaper">
+                    <div class="letter-content">
+                        <div class="letter-date">December 2025</div>
+                        <div class="letter-greeting">Dear You,</div>
+                        <div class="letter-body">
+                            <p class="letter-paragraph">As the year quietly closes,</p>
+                            <p class="letter-paragraph">A small pause, just for you.</p>
+                            <p class="letter-paragraph">This is a quiet space—a gentle moment crafted with care.</p>
+                            <p class="letter-paragraph">No rush, no expectations.</p>
+                            <p class="letter-paragraph letter-italic">Only if you feel like it.</p>
+                        </div>
+                        <div class="letter-signature">
+                            <p>With warmth,</p>
+                            <p class="letter-signature-name">— Someone who cares</p>
+                        </div>
+                        <div class="letter-click-hint">
+                            <button class="letter-click-btn">Click me</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="letter-envelope hidden" id="letterEnvelope">
+                    <div class="envelope-front">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-body"></div>
+                        <div class="envelope-address">
+                            <div class="envelope-to">To: You</div>
+                            <div class="envelope-from">From: Your special Tour guide</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="letter-sending hidden" id="letterSending">
+                    <div class="sending-animation">
+                        <div class="sending-icon">✉</div>
+                        <p class="sending-text">Sending...</p>
+            </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scene 2: Meet Your Little Guide -->
+    <section class="scene" data-scene="1">
+        <div class="scene-content">
+            <div id="guide-intro" class="guide-intro-container">
+                <h2 class="scene-title">Meet Your Little Guide</h2>
+                <p class="scene-text">This is your companion for this journey—a small friend who will walk alongside you.</p>
+                <div class="guide-placeholder">
+                    <img src="my toon/full_gesture_-removebg-preview.png" alt="" class="guide-character-image">
+                    <div class="thought-bubble" id="thoughtBubble">
+                        <div class="thought-bubble-content">
+                            <p class="thought-text" id="thoughtText"></p>
+                        </div>
+                        <div class="thought-bubble-tail"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-primary scene-btn" data-next="2">Continue</button>
+        </div>
+    </section>
+
+    <!-- Scene 3: How This Moment Came to Be -->
+    <section class="scene" data-scene="2">
+        <div class="scene-content">
+            <h2 class="scene-title">How This Moment Came to Be</h2>
+            <div class="narration-text">
+                <p>Sometimes, the most meaningful moments arrive quietly. They don't announce themselves with fanfare or bright lights.</p>
+                <p>They simply appear, like morning light through a window, gentle and steady.</p>
+                <p>This moment—right here, right now—is one of those quiet arrivals.</p>
+                <p>It came to be because someone wanted to share something with you, something that felt important enough to craft with intention.</p>
+            </div>
+            <div class="guide-placeholder" id="guidePlaceholderScene2">
+                <img src="my toon/think-removebg-preview.png" alt="" class="guide-character-image" id="guideCharacterImageScene2">
+                <div class="thought-bubble" id="thoughtBubbleScene2">
+                    <div class="thought-bubble-content">
+                        <p class="thought-text" id="thoughtTextScene2"></p>
+                    </div>
+                    <div class="thought-bubble-tail"></div>
+                </div>
+            </div>
+            <button class="btn-primary scene-btn" data-next="3">Continue</button>
+        </div>
+    </section>
+
+    <!-- Scene 4: The Things Worth Saying -->
+    <section class="scene" data-scene="3">
+        <div class="scene-content">
+            <h2 class="scene-title">The Things Worth Saying</h2>
+            <p class="scene-subtitle">A few words of appreciation</p>
+            <div class="appreciation-cards">
+                <div class="card">
+                    <p class="card-text">"Thank you for being exactly who you are."</p>
+                </div>
+                <div class="card">
+                    <p class="card-text">"Your presence matters more than you might know."</p>
+                </div>
+                <div class="card">
+                    <p class="card-text">"The small moments you create are beautiful."</p>
+                </div>
+                <div class="card">
+                    <p class="card-text">"You are seen, and you are valued."</p>
+                </div>
+            </div>
+            <div class="guide-placeholder" id="guidePlaceholderScene3">
+                <img src="my toon/smile-removebg-preview.png" alt="" class="guide-character-image" id="guideCharacterImageScene3">
+                <div class="thought-bubble" id="thoughtBubbleScene3">
+                    <div class="thought-bubble-content">
+                        <p class="thought-text" id="thoughtTextScene3"></p>
+                    </div>
+                    <div class="thought-bubble-tail"></div>
+                </div>
+            </div>
+            <button class="btn-primary scene-btn" data-next="4">Continue</button>
+        </div>
+    </section>
+
+    <!-- Scene 5: A Wish for What's Ahead -->
+    <section class="scene" data-scene="4">
+        <div class="scene-content">
+            <h2 class="scene-title">A Wish for What's Ahead</h2>
+            <div class="greeting-card">
+                <div class="greeting-card-content">
+                    <p class="greeting-text">It's a little surprising how, in such a short time,</p>
+                    <p class="greeting-text">two people can begin to matter to each other.</p>
+                    <p class="greeting-text">What started as simple conversations slowly became moments of comfort —</p>
+                    <p class="greeting-text">small thoughts shared, quiet laughs,</p>
+                    <p class="greeting-text">and an ease that grew naturally, without trying.</p>
+                    <p class="greeting-text">Somewhere along the way,</p>
+                    <p class="greeting-text">this space we shared started to feel meaningful.</p>
+                    
+                    <p class="greeting-text greeting-spacing">As this year comes to an end,</p>
+                    <p class="greeting-text">I just want to wish you days filled with warmth,</p>
+                    <p class="greeting-text">moments that make you smile without effort,</p>
+                    <p class="greeting-text">and a year ahead that treats you kindly.</p>
+                    <p class="greeting-text">May what's coming bring you calm, growth,</p>
+                    <p class="greeting-text">and everything that feels right for you —</p>
+                    <p class="greeting-text">in its own gentle time.</p>
+                    
+                <p class="greeting-signature">— With warmth</p>
+                </div>
+            </div>
+            <div class="guide-placeholder" id="guidePlaceholderScene4">
+                <img src="my toon/me-removebg-preview.png" alt="" class="guide-character-image" id="guideCharacterImageScene4">
+                <div class="thought-bubble" id="thoughtBubbleScene4">
+                    <div class="thought-bubble-content">
+                        <p class="thought-text" id="thoughtTextScene4"></p>
+                    </div>
+                    <div class="thought-bubble-tail"></div>
+                </div>
+            </div>
+            <button class="btn-primary scene-btn" data-next="5">Continue</button>
+        </div>
+    </section>
+
+    <!-- Scene 6: A Thought, in Bloom -->
+    <section class="scene" data-scene="5">
+        <div class="scene-content">
+            <h2 class="scene-title">A Thought, in Bloom</h2>
+            <p class="scene-text">Sometimes thoughts need space to unfold, like flowers opening slowly in morning light.</p>
+            <div class="guide-placeholder" id="guidePlaceholderScene5">
+                <img src="my toon/right-removebg-preview.png" alt="" class="guide-character-image" id="guideCharacterImageScene5">
+                <div class="thought-bubble" id="thoughtBubbleScene5">
+                    <div class="thought-bubble-content">
+                        <p class="thought-text" id="thoughtTextScene5"></p>
+                    </div>
+                    <div class="thought-bubble-tail"></div>
+                </div>
+            </div>
+            <div class="flower-animation-container">
+                <div class="night"></div>
+                <div class="flowers">
+                    <div class="flower flower--1">
+                        <div class="flower__leafs flower__leafs--1">
+                            <div class="flower__leaf flower__leaf--1"></div>
+                            <div class="flower__leaf flower__leaf--2"></div>
+                            <div class="flower__leaf flower__leaf--3"></div>
+                            <div class="flower__leaf flower__leaf--4"></div>
+                            <div class="flower__white-circle"></div>
+                            <div class="flower__light flower__light--1"></div>
+                            <div class="flower__light flower__light--2"></div>
+                            <div class="flower__light flower__light--3"></div>
+                            <div class="flower__light flower__light--4"></div>
+                            <div class="flower__light flower__light--5"></div>
+                            <div class="flower__light flower__light--6"></div>
+                            <div class="flower__light flower__light--7"></div>
+                            <div class="flower__light flower__light--8"></div>
+                        </div>
+                        <div class="flower__line">
+                            <div class="flower__line__leaf flower__line__leaf--1"></div>
+                            <div class="flower__line__leaf flower__line__leaf--2"></div>
+                            <div class="flower__line__leaf flower__line__leaf--3"></div>
+                            <div class="flower__line__leaf flower__line__leaf--4"></div>
+                            <div class="flower__line__leaf flower__line__leaf--5"></div>
+                            <div class="flower__line__leaf flower__line__leaf--6"></div>
+                        </div>
+                    </div>
+                    <div class="flower flower--2">
+                        <div class="flower__leafs flower__leafs--2">
+                            <div class="flower__leaf flower__leaf--1"></div>
+                            <div class="flower__leaf flower__leaf--2"></div>
+                            <div class="flower__leaf flower__leaf--3"></div>
+                            <div class="flower__leaf flower__leaf--4"></div>
+                            <div class="flower__white-circle"></div>
+                            <div class="flower__light flower__light--1"></div>
+                            <div class="flower__light flower__light--2"></div>
+                            <div class="flower__light flower__light--3"></div>
+                            <div class="flower__light flower__light--4"></div>
+                            <div class="flower__light flower__light--5"></div>
+                            <div class="flower__light flower__light--6"></div>
+                            <div class="flower__light flower__light--7"></div>
+                            <div class="flower__light flower__light--8"></div>
+                        </div>
+                        <div class="flower__line">
+                            <div class="flower__line__leaf flower__line__leaf--1"></div>
+                            <div class="flower__line__leaf flower__line__leaf--2"></div>
+                            <div class="flower__line__leaf flower__line__leaf--3"></div>
+                            <div class="flower__line__leaf flower__line__leaf--4"></div>
+                        </div>
+                    </div>
+                    <div class="flower flower--3">
+                        <div class="flower__leafs flower__leafs--3">
+                            <div class="flower__leaf flower__leaf--1"></div>
+                            <div class="flower__leaf flower__leaf--2"></div>
+                            <div class="flower__leaf flower__leaf--3"></div>
+                            <div class="flower__leaf flower__leaf--4"></div>
+                            <div class="flower__white-circle"></div>
+                            <div class="flower__light flower__light--1"></div>
+                            <div class="flower__light flower__light--2"></div>
+                            <div class="flower__light flower__light--3"></div>
+                            <div class="flower__light flower__light--4"></div>
+                            <div class="flower__light flower__light--5"></div>
+                            <div class="flower__light flower__light--6"></div>
+                            <div class="flower__light flower__light--7"></div>
+                            <div class="flower__light flower__light--8"></div>
+                        </div>
+                        <div class="flower__line">
+                            <div class="flower__line__leaf flower__line__leaf--1"></div>
+                            <div class="flower__line__leaf flower__line__leaf--2"></div>
+                            <div class="flower__line__leaf flower__line__leaf--3"></div>
+                            <div class="flower__line__leaf flower__line__leaf--4"></div>
+                        </div>
+                    </div>
+                    <div class="grow-ans" style="--d:1.2s">
+                        <div class="flower__g-long">
+                            <div class="flower__g-long__top"></div>
+                            <div class="flower__g-long__bottom"></div>
+                        </div>
+                    </div>
+                    <div class="growing-grass">
+                        <div class="flower__grass flower__grass--1">
+                            <div class="flower__grass--top"></div>
+                            <div class="flower__grass--bottom"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+                            <div class="flower__grass__overlay"></div>
+                        </div>
+                    </div>
+                    <div class="growing-grass">
+                        <div class="flower__grass flower__grass--2">
+                            <div class="flower__grass--top"></div>
+                            <div class="flower__grass--bottom"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+                            <div class="flower__grass__overlay"></div>
+                        </div>
+                    </div>
+                    <div class="growing-grass">
+                        <div class="flower__grass flower__grass--3">
+                            <div class="flower__grass--top"></div>
+                            <div class="flower__grass--bottom"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+                            <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+                            <div class="flower__grass__overlay"></div>
+                        </div>
+                    </div>
+                    <div class="green-grass-container">
+                        <div class="green-grass green-grass--1"></div>
+                        <div class="green-grass green-grass--2"></div>
+                        <div class="green-grass green-grass--3"></div>
+                        <div class="green-grass green-grass--4"></div>
+                        <div class="green-grass green-grass--5"></div>
+                    </div>
+                    <div class="grow-ans" style="--d:2.4s">
+                        <div class="flower__g-right flower__g-right--1">
+                            <div class="leaf"></div>
+                        </div>
+                    </div>
+                    <div class="grow-ans" style="--d:2.8s">
+                        <div class="flower__g-right flower__g-right--2">
+                            <div class="leaf"></div>
+                        </div>
+                    </div>
+                    <div class="grow-ans" style="--d:2.8s">
+                        <div class="flower__g-front">
+                            <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1">
+                                <div class="flower__g-front__leaf"></div>
+                            </div>
+                            <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--2">
+                                <div class="flower__g-front__leaf"></div>
+                            </div>
+                            <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--3">
+                                <div class="flower__g-front__leaf"></div>
+                            </div>
+                            <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--4">
+                                <div class="flower__g-front__leaf"></div>
+                            </div>
+                            <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--5">
+                                <div class="flower__g-front__leaf"></div>
+                            </div>
+                            <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--6">
+                                <div class="flower__g-front__leaf"></div>
+                            </div>
+                            <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--7">
+                                <div class="flower__g-front__leaf"></div>
+                            </div>
+                            <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--8">
+                                <div class="flower__g-front__leaf"></div>
+                            </div>
+                            <div class="flower__g-front__line"></div>
+                        </div>
+                    </div>
+                    <div class="grow-ans" style="--d:3.2s">
+                        <div class="flower__g-fr">
+                            <div class="leaf"></div>
+                            <div class="flower__g-fr__leaf flower__g-fr__leaf--1"></div>
+                            <div class="flower__g-fr__leaf flower__g-fr__leaf--2"></div>
+                            <div class="flower__g-fr__leaf flower__g-fr__leaf--3"></div>
+                            <div class="flower__g-fr__leaf flower__g-fr__leaf--4"></div>
+                            <div class="flower__g-fr__leaf flower__g-fr__leaf--5"></div>
+                            <div class="flower__g-fr__leaf flower__g-fr__leaf--6"></div>
+                            <div class="flower__g-fr__leaf flower__g-fr__leaf--7"></div>
+                            <div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
+                        </div>
+                    </div>
+                    <div class="long-g long-g--0">
+                        <div class="grow-ans" style="--d:3s">
+                            <div class="leaf leaf--0"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:2.2s">
+                            <div class="leaf leaf--1"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:3.4s">
+                            <div class="leaf leaf--2"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:3.6s">
+                            <div class="leaf leaf--3"></div>
+                        </div>
+                    </div>
+                    <div class="long-g long-g--1">
+                        <div class="grow-ans" style="--d:3.6s">
+                            <div class="leaf leaf--0"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:3.8s">
+                            <div class="leaf leaf--1"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:4s">
+                            <div class="leaf leaf--2"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:4.2s">
+                            <div class="leaf leaf--3"></div>
+                        </div>
+                    </div>
+                    <div class="long-g long-g--2">
+                        <div class="grow-ans" style="--d:4s">
+                            <div class="leaf leaf--0"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:4.2s">
+                            <div class="leaf leaf--1"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:4.4s">
+                            <div class="leaf leaf--2"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:4.6s">
+                            <div class="leaf leaf--3"></div>
+                        </div>
+                    </div>
+                    <div class="long-g long-g--3">
+                        <div class="grow-ans" style="--d:4s">
+                            <div class="leaf leaf--0"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:4.2s">
+                            <div class="leaf leaf--1"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:3s">
+                            <div class="leaf leaf--2"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:3.6s">
+                            <div class="leaf leaf--3"></div>
+                        </div>
+                    </div>
+                    <div class="long-g long-g--4">
+                        <div class="grow-ans" style="--d:4s">
+                            <div class="leaf leaf--0"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:4.2s">
+                            <div class="leaf leaf--1"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:3s">
+                            <div class="leaf leaf--2"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:3.6s">
+                            <div class="leaf leaf--3"></div>
+                        </div>
+                    </div>
+                    <div class="long-g long-g--5">
+                        <div class="grow-ans" style="--d:4s">
+                            <div class="leaf leaf--0"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:4.2s">
+                            <div class="leaf leaf--1"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:3s">
+                            <div class="leaf leaf--2"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:3.6s">
+                            <div class="leaf leaf--3"></div>
+                        </div>
+                    </div>
+                    <div class="long-g long-g--6">
+                        <div class="grow-ans" style="--d:4.2s">
+                            <div class="leaf leaf--0"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:4.4s">
+                            <div class="leaf leaf--1"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:4.6s">
+                            <div class="leaf leaf--2"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:4.8s">
+                            <div class="leaf leaf--3"></div>
+                        </div>
+                    </div>
+                    <div class="long-g long-g--7">
+                        <div class="grow-ans" style="--d:3s">
+                            <div class="leaf leaf--0"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:3.2s">
+                            <div class="leaf leaf--1"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:3.5s">
+                            <div class="leaf leaf--2"></div>
+                        </div>
+                        <div class="grow-ans" style="--d:3.6s">
+                            <div class="leaf leaf--3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="scene-text">Take your time here. There's no rush.</p>
+            <button class="btn-primary scene-btn" data-next="6">Continue</button>
+        </div>
+    </section>
+
+    <!-- Scene 7: Before We Continue… -->
+    <section class="scene" data-scene="6">
+        <div class="scene-content">
+            <h2 class="scene-title">Before We Continue…</h2>
+            <p class="scene-text">There's something personal coming up—a message meant just for you.</p>
+            <p class="scene-text">If you'd like, you can pause here, take a breath, and prepare for what's next.</p>
+            <p class="scene-text">Or, if you're ready, we can continue together.</p>
+            <button class="btn-primary scene-btn" data-next="7">I'm ready</button>
+            <div class="guide-placeholder" id="guidePlaceholderScene6">
+                <img src="my toon/hello-removebg-preview.png" alt="" class="guide-character-image" id="guideCharacterImageScene6">
+                <div class="thought-bubble" id="thoughtBubbleScene6">
+                    <div class="thought-bubble-content">
+                        <p class="thought-text" id="thoughtTextScene6"></p>
+                    </div>
+                    <div class="thought-bubble-tail"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scene 8: From Me, Honestly -->
+    <section class="scene" data-scene="7">
+        <div class="scene-content">
+            <h2 class="scene-title">From Me, Honestly</h2>
+            <p class="scene-text">This is a personal message, shared with care.</p>
+            <div class="video-container">
+                <!-- Add your personal message video to assets/video/personal-message.mp4 -->
+                <video id="personalVideo" class="story-video" controls preload="metadata">
+                    <source src="assets/video/personal-message.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-placeholder">
+                    <p>Add your personal message video here</p>
+                    <p class="video-hint">assets/video/personal-message.mp4</p>
+                </div>
+            </div>
+            <button class="btn-primary scene-btn" data-next="8">Continue</button>
+        </div>
+    </section>
+
+    <!-- Scene 9: Moments That Feel Quietly Special -->
+    <section class="scene" data-scene="8">
+        <div class="scene-content">
+            <h2 class="scene-title">Moments That Feel Quietly Special</h2>
+            <p class="scene-text">A collection of moments, carefully chosen and gently edited.</p>
+            <div class="video-container">
+                <!-- Add your edited moments video to assets/video/special-moments.mp4 -->
+                <video id="momentsVideo" class="story-video" controls preload="metadata">
+                    <source src="assets/video/special-moments.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-placeholder">
+                    <p>Add your special moments video here</p>
+                    <p class="video-hint">assets/video/special-moments.mp4</p>
+                </div>
+            </div>
+            <button class="btn-primary scene-btn" data-next="9">Continue</button>
+        </div>
+    </section>
+
+    <!-- Scene 10: Just One Last Thing -->
+    <section class="scene" data-scene="9">
+        <div class="scene-content">
+            <h2 class="scene-title">Just One Last Thing</h2>
+            <p class="scene-text">A final message, shared with gratitude.</p>
+            <div class="video-container">
+                <!-- Add your final message video to assets/video/final-message.mp4 -->
+                <video id="finalVideo" class="story-video" controls preload="metadata">
+                    <source src="assets/video/final-message.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-placeholder">
+                    <p>Add your final message video here</p>
+                    <p class="video-hint">assets/video/final-message.mp4</p>
+                </div>
+            </div>
+            <button class="btn-primary scene-btn" data-next="10">Continue</button>
+        </div>
+    </section>
+
+    <!-- Scene 11: Until the Year Ends -->
+    <section class="scene" data-scene="10">
+        <div class="scene-content">
+            <h2 class="scene-title">Until the Year Ends</h2>
+            <p class="scene-text">Thank you for taking this journey.</p>
+            <p class="scene-text">Thank you for the time you've given, the attention you've shared.</p>
+            <p class="scene-text">As the year comes to a close, may you carry with you a sense of warmth, of being seen, of being valued.</p>
+            <p class="scene-text">Until we meet again, take care.</p>
+            <div class="ending-signature">
+                <p>— With all my heart</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript Files -->
+    <script src="js/music.js"></script>
+    <script src="js/guide.js"></script>
+    <script src="js/thought-animation.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/flower-animation.js"></script>
+</body>
+</html>
+

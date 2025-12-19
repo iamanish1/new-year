@@ -1,0 +1,61 @@
+/* ============================================
+   THEME STYLES
+   CSS variables for color palette and fonts
+   ============================================ */
+
+:root {
+    /* Color Palette - Warm Pastels */
+    --color-bg-primary: #F5F1E8;      /* Light Cream */
+    --color-bg-secondary: #FFD4B3;    /* Soft Peach */
+    --color-accent-peach: #FFD4B3;    /* Soft Peach */
+    --color-accent-beige: #FAF7F3;    /* Very Pale Pinkish Beige */
+    --color-accent-brown: #8B7355;    /* Deep Muted Brown/Terracotta */
+    
+    /* Text Colors */
+    --color-text: #6B5D4D;            /* Dark muted brown */
+    --color-text-dark: #5A4A3A;       /* Darker brown for headings */
+    --color-text-light: #8B7A6A;      /* Lighter brown for subtle text */
+    
+    /* Button Colors */
+    --color-btn-bg: var(--color-accent-brown);
+    --color-btn-text: var(--color-bg-primary);
+    --color-btn-hover: #7A6345;       /* Slightly darker terracotta */
+    
+    /* Typography */
+    --font-heading: Georgia, "Times New Roman", serif;
+    --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    
+    /* Line Heights */
+    --line-height-heading: 1.3;
+    --line-height-body: 1.7;
+    
+    /* Spacing Scale */
+    --spacing-xs: 0.5rem;    /* 8px */
+    --spacing-sm: 1rem;      /* 16px */
+    --spacing-md: 1.5rem;    /* 24px */
+    --spacing-lg: 2rem;      /* 32px */
+    --spacing-xl: 3rem;      /* 48px */
+    --spacing-2xl: 4rem;     /* 64px */
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease-in-out;
+    --transition-normal: 0.4s ease-in-out;
+    --transition-slow: 0.6s ease-in-out;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode support (optional, can be enabled later) */
+@media (prefers-color-scheme: dark) {
+    /* Keep warm palette even in dark mode preference */
+    /* Can be customized later if needed */
+}
+
