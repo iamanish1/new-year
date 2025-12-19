@@ -1,0 +1,13 @@
+{
+  "name": "gentle-year-end-journey",
+  "version": "1.0.0",
+  "description": "A Gentle Year-End Journey",
+  "scripts": {
+    "build": "git lfs pull",
+    "vercel-build": "git lfs pull"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
