@@ -1,5 +1,5 @@
 {
-  "buildCommand": "git remote set-url origin https://github.com/iamanish1/new-year.git && git config lfs.url https://github.com/iamanish1/new-year.git/info/lfs && git lfs pull",
+  "buildCommand": "git remote add origin https://github.com/iamanish1/new-year.git 2>/dev/null || git remote set-url origin https://github.com/iamanish1/new-year.git; git config lfs.url https://github.com/iamanish1/new-year.git/info/lfs && git lfs pull",
   "installCommand": "git lfs install",
   "outputDirectory": ".",
   "framework": null
