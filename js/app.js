@@ -163,8 +163,10 @@ function setupButtonListeners() {
  * Pause background music when videos play
  */
 function setupVideoListeners() {
-    const videos = document.querySelectorAll('.story-video');
+    const videos = document.querySelectorAll('.story-video:not(.youtube-video)');
+    const youtubeVideos = document.querySelectorAll('.youtube-video');
 
+    // Handle regular video elements (if any)
     videos.forEach(video => {
         // Pause music when video starts playing
         video.addEventListener('play', () => {
@@ -211,6 +213,20 @@ function setupVideoListeners() {
             }
         });
     });
+
+    // Handle YouTube iframes - pause music when YouTube video starts
+    youtubeVideos.forEach(iframe => {
+        // Use YouTube IFrame API for better control (optional)
+        // For now, we'll just pause music when iframe loads
+        iframe.addEventListener('load', () => {
+            // YouTube iframe loaded - music will be controlled by user interaction
+            if (window.musicController) {
+                // Pause music when YouTube video container is visible
+                // Note: YouTube doesn't allow programmatic control without API
+                window.musicController.pause();
+            }
+        });
+    });
 }
 
 /**
@@ -225,7 +241,10 @@ function handleVideoScenes(index) {
     if (videoScenes.includes(index)) {
         const scene = scenes[index];
         if (scene) {
-            const videos = scene.querySelectorAll('.story-video');
+            const videos = scene.querySelectorAll('.story-video:not(.youtube-video)');
+            const youtubeVideos = scene.querySelectorAll('.youtube-video');
+            
+            // Handle regular video elements
             videos.forEach(video => {
                 // Check if video source exists
                 if (video.src && video.src !== window.location.href) {
@@ -245,6 +264,17 @@ function handleVideoScenes(index) {
                         if (placeholder) {
                             placeholder.style.display = 'flex';
                         }
+                    }
+                }
+            });
+            
+            // Handle YouTube iframes - hide placeholder since YouTube handles loading
+            youtubeVideos.forEach(iframe => {
+                const container = iframe.closest('.video-container');
+                if (container) {
+                    const placeholder = container.querySelector('.video-placeholder');
+                    if (placeholder) {
+                        placeholder.style.display = 'none';
                     }
                 }
             });

@@ -600,6 +600,12 @@
     background-color: var(--color-accent-brown);
 }
 
+/* YouTube video embed styling */
+.youtube-video {
+    border: none;
+    border-radius: var(--radius-md);
+}
+
 .video-placeholder {
     position: absolute;
     top: 0;
