@@ -1,5 +1,5 @@
 {
-  "buildCommand": "git lfs pull",
+  "buildCommand": "git config lfs.url https://github.com/iamanish1/new-year.git/info/lfs && git lfs pull",
   "installCommand": "git lfs install",
   "outputDirectory": ".",
   "framework": null
