@@ -19,7 +19,8 @@ const guideScenes = [1, 2, 3, 5]; // Scene indices where guide is visible
  */
 function initGuide() {
     if (!guideElement) {
-        console.warn('Guide element not found');
+        // Guide element removed - using scene-specific guide elements instead
+        // Silently return without warning
         return;
     }
 

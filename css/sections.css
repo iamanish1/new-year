@@ -281,6 +281,11 @@
     z-index: 1000;
     width: auto;
     max-width: 280px;
+    pointer-events: none;
+}
+
+#guidePlaceholderScene6 * {
+    pointer-events: auto;
 }
 
 /* Guide character image at bottom left for Scene 6 */
@@ -297,6 +302,53 @@
     left: 10px;
     max-width: 250px;
     min-width: 180px;
+}
+
+/* Scene 6 specific adjustments */
+.scene[data-scene="6"] {
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.scene[data-scene="6"] .scene-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 700px;
+    width: 100%;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    gap: 0;
+    margin: 0 auto;
+}
+
+.scene[data-scene="6"] .scene-title {
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scene[data-scene="6"] .scene-text {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-md);
+    line-height: 1.8;
+    width: 100%;
+    padding: 0 var(--spacing-sm);
+    box-sizing: border-box;
+}
+
+.scene[data-scene="6"] .btn-primary.scene-btn {
+    margin-top: var(--spacing-lg);
+    margin-bottom: 0;
+    align-self: center;
+    width: auto;
+    min-width: 150px;
 }
 
 @keyframes guideAppear {

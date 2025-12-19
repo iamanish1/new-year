@@ -109,6 +109,11 @@ function showScene(index) {
             }, 100);
         }
     }
+    
+    // Change music for this scene
+    if (window.musicController && window.musicController.changeScene) {
+        window.musicController.changeScene(index);
+    }
 }
 
 /**
@@ -214,8 +219,8 @@ function setupVideoListeners() {
  * @param {number} sceneIndex - Current scene index
  */
 function handleVideoScenes(index) {
-    // Video scenes: 7, 8, 9 (indices)
-    const videoScenes = [7, 8, 9];
+    // Video scenes: 7 (indices) - Scene 8 (special moments) and Scene 8 (final message) removed
+    const videoScenes = [7];
     
     if (videoScenes.includes(index)) {
         const scene = scenes[index];
@@ -251,89 +256,115 @@ function handleVideoScenes(index) {
  * Set up letter interaction (click to close and send)
  */
 function setupLetterInteraction() {
-    const letterContainer = document.getElementById('letterContainer');
-    const letterPaper = document.getElementById('letterPaper');
-    const letterEnvelope = document.getElementById('letterEnvelope');
-    const letterSending = document.getElementById('letterSending');
-    
-    if (!letterContainer || !letterPaper || !letterEnvelope || !letterSending) {
-        return; // Letter elements not found (not on landing page)
-    }
+    // Use setTimeout to ensure DOM is fully ready
+    setTimeout(() => {
+        const letterContainer = document.getElementById('letterContainer');
+        const letterPaper = document.getElementById('letterPaper');
+        const letterEnvelope = document.getElementById('letterEnvelope');
+        const letterSending = document.getElementById('letterSending');
+        
+        if (!letterContainer || !letterPaper || !letterEnvelope || !letterSending) {
+            console.warn('Letter elements not found');
+            return; // Letter elements not found (not on landing page)
+        }
 
-    let letterClicked = false;
-    
-    const handleLetterClick = () => {
-        if (letterClicked) return; // Prevent multiple clicks
+        let letterClicked = false;
         
-        letterClicked = true;
-        
-        // Close the letter (smooth fade out)
-        letterPaper.style.transition = 'opacity 0.3s ease-out';
-        letterPaper.style.opacity = '0.9';
-        
-        setTimeout(() => {
-            letterPaper.classList.add('closing');
-        }, 100);
-        
-        // After letter closes, show envelope
-        setTimeout(() => {
-            letterPaper.style.display = 'none';
-            letterEnvelope.classList.remove('hidden');
-            letterEnvelope.classList.add('visible');
+        const handleLetterClick = () => {
+            console.log('Letter click handler triggered');
+            if (letterClicked) {
+                console.log('Letter already clicked, ignoring');
+                return; // Prevent multiple clicks
+            }
             
-            // Close envelope flap after envelope appears
-            setTimeout(() => {
-                const envelopeFlap = letterEnvelope.querySelector('.envelope-flap');
-                if (envelopeFlap) {
-                    envelopeFlap.classList.add('closed');
-                }
-            }, 600);
-        }, 2000);
-        
-        // Show sending animation after envelope closes
-        setTimeout(() => {
-            letterEnvelope.style.transition = 'opacity 0.5s ease-out';
-            letterEnvelope.style.opacity = '0';
+            letterClicked = true;
+            console.log('Starting letter animation sequence');
+            
+            // Close the letter (smooth fade out)
+            letterPaper.style.transition = 'opacity 0.3s ease-out';
+            letterPaper.style.opacity = '0.9';
             
             setTimeout(() => {
-                letterEnvelope.classList.add('hidden');
-                letterSending.classList.remove('hidden');
-                letterSending.classList.add('visible');
-            }, 500);
-        }, 3800);
+                letterPaper.classList.add('closing');
+            }, 100);
+            
+            // After letter closes, show envelope
+            setTimeout(() => {
+                letterPaper.style.display = 'none';
+                letterEnvelope.classList.remove('hidden');
+                letterEnvelope.classList.add('visible');
+                
+                // Close envelope flap after envelope appears
+                setTimeout(() => {
+                    const envelopeFlap = letterEnvelope.querySelector('.envelope-flap');
+                    if (envelopeFlap) {
+                        envelopeFlap.classList.add('closed');
+                    }
+                }, 600);
+            }, 2000);
+            
+            // Show sending animation after envelope closes
+            setTimeout(() => {
+                letterEnvelope.style.transition = 'opacity 0.5s ease-out';
+                letterEnvelope.style.opacity = '0';
+                
+                setTimeout(() => {
+                    letterEnvelope.classList.add('hidden');
+                    letterSending.classList.remove('hidden');
+                    letterSending.classList.add('visible');
+                }, 500);
+            }, 3800);
+            
+            // Transition to next scene after sending animation
+            setTimeout(() => {
+                showScene(1);
+            }, 5500);
+        };
         
-        // Transition to next scene after sending animation
-        setTimeout(() => {
-            showScene(1);
-        }, 5500);
-    };
-    
-    // Add click handler to letter container
-    letterContainer.addEventListener('click', handleLetterClick);
-    
-    // Add click handler to button (stop propagation to prevent double trigger)
-    const clickBtn = letterPaper.querySelector('.letter-click-btn');
-    if (clickBtn) {
-        clickBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            handleLetterClick();
+        // Add click handler to letter container
+        letterContainer.addEventListener('click', handleLetterClick);
+        console.log('Letter container click handler added');
+        
+        // Add click handler to button (stop propagation to prevent double trigger)
+        const clickBtn = letterPaper.querySelector('.letter-click-btn');
+        if (clickBtn) {
+            console.log('Click button found, adding event listener');
+            clickBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                console.log('Button clicked!');
+                handleLetterClick();
+            });
+        } else {
+            console.error('Click button not found!');
+            // Try alternative selector
+            const altBtn = document.querySelector('.letter-click-btn');
+            if (altBtn) {
+                console.log('Found button with alternative selector');
+                altBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    console.log('Button clicked (alternative)!');
+                    handleLetterClick();
+                });
+            }
+        }
+        
+        // Add hover effect
+        letterContainer.addEventListener('mouseenter', () => {
+            if (!letterClicked) {
+                letterPaper.style.transform = 'scale(1.02)';
+                letterPaper.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(139, 115, 85, 0.1), inset 0 0 30px rgba(139, 115, 85, 0.05)';
+            }
         });
-    }
-    
-    // Add hover effect
-    letterContainer.addEventListener('mouseenter', () => {
-        if (!letterClicked) {
-            letterPaper.style.transform = 'scale(1.02)';
-            letterPaper.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(139, 115, 85, 0.1), inset 0 0 30px rgba(139, 115, 85, 0.05)';
-        }
-    });
-    
-    letterContainer.addEventListener('mouseleave', () => {
-        if (!letterClicked) {
-            letterPaper.style.transform = 'scale(1)';
-            letterPaper.style.boxShadow = '';
-        }
-    });
+        
+        letterContainer.addEventListener('mouseleave', () => {
+            if (!letterClicked) {
+                letterPaper.style.transform = 'scale(1)';
+                letterPaper.style.boxShadow = '';
+            }
+        });
+    }, 100); // Small delay to ensure DOM is ready
 }
 
 /**
