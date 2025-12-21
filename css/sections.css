@@ -28,6 +28,8 @@
     text-align: center;
     padding: var(--spacing-md) var(--spacing-lg);
     overflow-x: hidden;
+    overflow-y: visible;
+    min-height: auto;
 }
 
 /* Scene 5 specific adjustments */
@@ -575,7 +577,8 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(139, 115, 85, 0.15);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    min-height: auto;
 }
 
 .greeting-card::before {
@@ -594,6 +597,8 @@
 .greeting-card-content {
     padding: var(--spacing-md) var(--spacing-md);
     position: relative;
+    overflow: visible;
+    min-height: auto;
 }
 
 .greeting-card-content::after {
